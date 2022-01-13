@@ -1,6 +1,6 @@
 export class Product {
-    sku: string;
     id: string;
+    sku: string;
     name: string;
     description: string;
     unitPrice: number;
