@@ -50,7 +50,7 @@ export class ProductListComponent implements OnInit {
 
   handleSearchProducts() {
 
-    const theKeyword: string = this.route.snapshot.paramMap.get('keyword')!;
+    const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
 
     // if we have a different keyword than previous
     // then set thePageNumber to 1
@@ -77,7 +77,7 @@ export class ProductListComponent implements OnInit {
 
     if (hasCategoryId) {
       // get the "id" param string. convert string to a number using the "+" symbol
-      this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
+      this.currentCategoryId = +this.route.snapshot.paramMap.get('id');
     }
     else {
       // not category id available ... default to category id 1
