@@ -28,6 +28,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth, injector) => {
@@ -78,7 +79,7 @@ const routes: Routes = [
     OktaAuthModule,
     NgbModule
   ],
-  providers: [ProductService,{provide: OKTA_CONFIG,useValue: {oktaAuth} }],
+  providers: [ProductService,{provide: OKTA_CONFIG,useValue: {oktaAuth} }, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
